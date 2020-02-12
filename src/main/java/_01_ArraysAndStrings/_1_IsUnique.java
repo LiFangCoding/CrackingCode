@@ -9,7 +9,7 @@ public class _1_IsUnique {
      * @param s
      * @return
      */
-    public boolean isUniqueChars(String s) {
+    public boolean isUniqueChars_set(String s) {
         if (s == null) {
             return true;
         }
@@ -26,4 +26,22 @@ public class _1_IsUnique {
         return true;
     }
 
+    /**
+     * If string is only a-z
+     * only 26. Can use integer to bit vector
+     */
+
+    public boolean isUniqueChars_bit_vector(String s) {
+        int checker = 0;
+
+        for (int i = 0; i < s.length(); i++) {
+            int val = s.charAt(i) - 'a';
+            if ((checker & (1 << val)) > 0) {
+                return false;
+            }
+            checker |= (1 << val);
+        }
+
+        return true;
+    }
 }
