@@ -25,17 +25,17 @@ public class _3_URLIfy {
             }
         }
 
-        index = trueLength + spaceCount * 2;
+        index = trueLength + spaceCount * 2 - 1;
 
         for (int i = trueLength - 1; i >= 0; i--) {
             if (str[i] == ' ') {
-                str[index - 1] = '0';
-                str[index - 2] = '2';
-                str[index - 3] = '%';
+                str[index] = '0';
+                str[index - 1] = '2';
+                str[index - 2] = '%';
                 index -= 3;
             } else {
-                index--;
                 str[index] = str[i];
+                index--;
             }
         }
     }
